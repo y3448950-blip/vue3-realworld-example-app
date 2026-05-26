@@ -15,7 +15,7 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 10.33.0  # 匹配 package.json 中的版本
           run_install: false
 
       - name: Use Node.js 20.x
@@ -35,6 +35,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER_NAME }}
           key: ${{ secrets.SSH_KEY }}
-          source: "./dist/*"
+          source: "dist/*"
           target: "/var/www/html"
           strip_components: 1
