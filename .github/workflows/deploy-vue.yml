@@ -28,6 +28,9 @@ jobs:
           pnpm install --no-frozen-lockfile
           pnpm build
 
+      - name: List dist contents
+        run: ls -la ./dist/
+
       - name: Copy files to server
         uses: appleboy/scp-action@master
         with:
@@ -37,3 +40,4 @@ jobs:
           source: "./dist/*"
           target: "/var/www/html"
           strip_components: 1
+          rm: true
